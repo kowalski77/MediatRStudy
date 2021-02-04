@@ -28,7 +28,6 @@ namespace Publisher.App.Application.CommandHandlers
                                        $"message: Recipe {notification.RecipeName} Ingredient type {notification.IngredientType}, Going to apply discount of {notification.Total}");
 
             var recipe = await this.recipeRepository.GetRecipeAsync(notification.RecipeName).ConfigureAwait(false);
-
             recipe.ApplyDiscount(notification.IngredientType, notification.Total);
 
             await this.recipeRepository.SaveAsync(recipe).ConfigureAwait(false);
