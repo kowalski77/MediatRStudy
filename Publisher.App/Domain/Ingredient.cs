@@ -18,6 +18,8 @@ namespace Publisher.App.Domain
 
         public string Name { get; private set; }
 
+        public int DiscountsApplied { get; private set; }
+
         public IngredientType IngredientType { get; private set; }
 
         public decimal Cost { get; private set; }
@@ -30,6 +32,7 @@ namespace Publisher.App.Domain
             }
 
             this.Cost -= (discount / 100);
+            this.DiscountsApplied += 1;
         }
     }
 }
