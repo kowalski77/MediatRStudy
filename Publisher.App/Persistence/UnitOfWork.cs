@@ -44,8 +44,8 @@ namespace Publisher.App.Persistence
 
             Console.WriteLine($"Commit Session Id : {this.sessionHolder.Session.ServerSession.Id}");
 
-            await this.domainEventsDispatcher.DispatchEvents().ConfigureAwait(false);
             await this.sessionHolder.Session.CommitTransactionAsync().ConfigureAwait(false);
+            await this.domainEventsDispatcher.DispatchEvents().ConfigureAwait(false);
         }
 
         public void Dispose()
